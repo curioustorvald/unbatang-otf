@@ -12,4 +12,27 @@ __은바탕OTF__는 은광희 님의 한글 LaTeX 포스트스크립트 Type1 �
 
 ## 유의 사항 ##
 
-* 원본이 HLaTeX에서 직접 추출한 글꼴 묶음이라 옛한글 구현을 위한 GSUB정보는 없습니다.
+* 원본이 HLaTeX에서 직접 추출한 글꼴이라 옛한글 구현을 위한 GSUB정보는 없습니다.
+* LaTeX 외에서 사용할 시 자간 등을 직접 수정해야 할 것입니다.
+
+
+## LaTeX에서 사용하기 ##
+
+luatexko 패키지를 사용 중일 때 다음과 같이 사용할 수 있습니다.
+
+    \setmainfont{LinLibertineO}
+    \setmainhangulfont{UnBatangOTF-Book}[BoldFont=UnBatangOTF-Bold, InterHangul=-.0852em, Protrusion, Expansion]\hangulpunctuations=1
+    \registerpunctuations{"20, "2C, "2E, "3A, "3B, "3F, "2014, "2018, "2019, "201C, "201D}
+
+가는체는 다음과 같이 추가하고 사용할 수 있습니다.
+
+    \newfontfamily\hanlight{UnBatangOTF-Light}[InterHangul=-.0852em, Protrusion, Expansion]
+    
+    ...
+    
+    {\hanlight
+    이 부분은 조판할 때 가는 글꼴로 표현됩니다.
+    
+    컴퓨터 출판물의 양이 늘면 타입킷의 활용도 많아지게 된다.
+    }
+
